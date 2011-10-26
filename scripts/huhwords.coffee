@@ -5,8 +5,10 @@
 # x? - display the data associated with x
 # forget x - remove x from huhwords
 
+Brain = require "../src/vectorprime/brain"
+
 module.exports = (robot) ->
-  client = robot.brain.client
+  client = new Brain robot.brain.client
 
   robot.respond /forget (.*)$/i, (msg) ->
     term = msg.match[1]

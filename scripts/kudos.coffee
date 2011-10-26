@@ -5,8 +5,10 @@
 # +x <nick> - increments the value of x for <nick>
 # -x <nick> - decrements the value of x for <nick>
 
+Brain = require "../src/vectorprime/brain"
+
 module.exports = (robot) ->
-  client = robot.brain.client
+  client = new Brain robot.brain.client
 
   robot.respond /\-(\d+) (.*)$/i, (msg) ->
     amount = msg.match[1]
