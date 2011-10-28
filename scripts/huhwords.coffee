@@ -8,7 +8,7 @@
 Brain = require "../src/vectorprime/brain"
 
 module.exports = (robot) ->
-  client = new Brain robot.brain.client
+  client = new Brain
 
   robot.respond /forget (.*)$/i, (msg) ->
     term = msg.match[1]

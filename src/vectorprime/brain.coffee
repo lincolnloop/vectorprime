@@ -1,6 +1,10 @@
+Url   = require "url"
+Redis = require "redis"
+
 class Brain
-  constructor: (client) ->
-    @client = client
+  constructor: () ->
+    info   = Url.parse process.env.REDISTOGO_URL || 'redis://localhost:6379'
+    @client = Redis.createClient(info.port, info.hostname)
     @db_name = process.env.VECTORPRIME_DBNAME || ""
   
   dbify: (str) ->
