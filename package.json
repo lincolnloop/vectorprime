@@ -1,21 +1,22 @@
 {
-  "name":        "hosted-hubot",
-  "version":     "0.1.0",
-  "author":      "GitHub Inc.",
-  "keywords":    "github hubot campfire bot",
-  "description": "A simple helpful Robot for your Company",
+  "name":        "vectorprime",
+  "version":     "0.2.0",
+  "author":      "LincolnLoop (created by GitHub Inc.)",
+  "keywords":    "github hubot irc bot",
+  "description": "The robot that prowls our company IRC channel",
   "licenses":     [{
     "type":       "MIT",
-    "url":        "http://github.com/github/hubot/raw/master/LICENSE"
+    "url":        "http://github.com/lincolnloop/vectorprime/raw/master/LICENSE"
   }],
 
   "repository" : {
     "type" : "git",
-    "url" : "http://github.com/github/hubot.git"
+    "url" : "http://github.com/lincolnloop/vectorprime.git"
   },
 
   "dependencies": {
-    "hubot": ">= 1.0.6",
-    "hubot-scripts": ">= 1.0.4"
+    "hubot": ">= 1.1.1",
+    "hubot-scripts": ">= 1.1.0",
+    "optparse": "1.0.1"
   }
 }
