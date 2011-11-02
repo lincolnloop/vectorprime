@@ -32,7 +32,7 @@ module.exports = (robot) ->
     nick = msg.match[1]
 
     client.hget "kudos", nick, (err, value) =>
-      if not err
+      if not err and value
         msg.send value
   
   robot.respond /kudos$/i, (msg) ->
