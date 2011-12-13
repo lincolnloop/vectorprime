@@ -4,8 +4,15 @@
 
 module.exports = (robot) ->
 
-  robot.respond /(\w+)#(\d+)$/i, (msg) ->
-    project = msg.match[1]
-    issue_number = msg.match[2]
+  # robot.respond /(\w+)#(\d+)$/i, (msg) ->
+  #   project = msg.match[1]
+  #   issue_number = msg.match[2]
 
-    msg.send "https://github.com/lincolnloop/#{project}/issues/#{issue_number}"
+  #   msg.send "https://github.com/lincolnloop/#{project}/issues/#{issue_number}"
+  
+  robot.respond /(\w+)\/(\w+)#(\d+)$/i, (msg) ->
+  	owner = msg.match[1]
+    project = msg.match[2]
+    issue_number = msg.match[3]
+
+    msg.send "https://github.com/#{owner}/#{project}/issues/#{issue_number}"
