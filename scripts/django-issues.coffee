@@ -4,7 +4,7 @@
 
 module.exports = (robot) ->
 
-  robot.respond /django#\d+$/i, (msg) ->
+  robot.respond /django#(\d+)$/i, (msg) ->
     issue_number = msg.match[1]
 
     msg.send "https://code.djangoproject.com/ticket/#{issue_number}"
