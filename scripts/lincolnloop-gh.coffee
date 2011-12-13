@@ -1,6 +1,6 @@
 # Lincoln Loop Github issue links
 #
-# <project>#issue_number = returns a link
+# <project>#<issue_number> = returns a link to a github issue
 
 module.exports = (robot) ->
 
