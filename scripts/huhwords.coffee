@@ -10,7 +10,7 @@ Brain = require "../src/vectorprime/brain"
 module.exports = (robot) ->
   client = new Brain
 
-  robot.hear /forget (.*)$/i, (msg) ->
+  robot.respond /forget (.*)$/i, (msg) ->
     term = msg.match[1]
     value = msg.match[2]
 
@@ -18,7 +18,7 @@ module.exports = (robot) ->
       if not err
         msg.send term + " forgotten"
 
-  robot.hear /(.*) = (.*)$/i, (msg) ->
+  robot.respond /(.*) = (.*)$/i, (msg) ->
     term = msg.match[1]
     value = msg.match[2]
 
@@ -26,13 +26,13 @@ module.exports = (robot) ->
       if not err
         msg.send term + " stored"
 
-  robot.hear /(.*)\?$/i, (msg) ->
+  robot.hear /(\S+)\?/i, (msg) ->
     term = msg.match[1]
     client.hget "huh", term, (err, value) =>
       if not err
         msg.send value
 
-  robot.hear /huhwords$/i, (msg) ->
+  robot.respond /huhwords$/i, (msg) ->
     client.hkeys "huh", (err, words) =>
       if not err
         msg.send words.join "\n"
