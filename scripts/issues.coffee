@@ -4,7 +4,7 @@
 
 module.exports = (robot) ->
 
-  robot.hear /(\w+)#(\d+)$/i, (msg) ->
+  robot.hear /(\w+)#(\d+)/i, (msg) ->
     project = msg.match[1]
     issue_number = msg.match[2]
 
@@ -13,7 +13,7 @@ module.exports = (robot) ->
     else
       msg.send "https://github.com/lincolnloop/#{project}/issues/#{issue_number}"
 
-  robot.hear /(\w+)\/(\w+)#(\d+)$/i, (msg) ->
+  robot.hear /(\w+)\/(\w+)#(\d+)/i, (msg) ->
     owner = msg.match[1]
     project = msg.match[2]
     issue_number = msg.match[3]
