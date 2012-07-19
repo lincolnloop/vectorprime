@@ -1,0 +1,4 @@
+exports.settings = {
+    "DB_USER": 'vectorprime',
+    "DB_PASSWORD": 'password'
+};
