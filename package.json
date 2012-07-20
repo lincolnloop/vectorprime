@@ -20,7 +20,8 @@
     "optparse": ">= 1.0.1",
     "redis": "0.6.7",
     "hubot-irc": "0.1.0",
-    "pg": "0.8.1"
+    "pg": "0.8.1",
+    "moment": "1.6.2"
   },
   "bin": {
     "hubot": "node_modules/.bin/hubot",
