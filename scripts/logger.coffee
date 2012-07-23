@@ -20,13 +20,13 @@ module.exports = (robot) ->
         store_msg(nick, text, now)
 
     robot.enter (msg) ->
-        nick = "<operator>"
+        nick = ""
         text = msg.message.user.name + " has joined the channel"
         now = new Date()
         store_msg(nick, text, now)
 
     robot.leave (msg) ->
-        nick = "<operator>"
+        nick = ""
         text = msg.message.user.name + " has left the channel"
         now = new Date()
         store_msg(nick, text, now)
