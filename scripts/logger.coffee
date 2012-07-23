@@ -7,17 +7,23 @@ client = new pg.Client(conString);
 
 client.connect();
 
-store_msg = (nick, text, timestamp) ->
+store_msg = (nick, text, timestamp, action=false) ->
     bot_id = process.env.SNARLBOT_ID
     console.log(bot_id)
-    client.query("INSERT INTO logs_log(bot_id, nick, text, timestamp) values($1, $2, $3, $4)", [bot_id, nick, text, timestamp]);
+    client.query("INSERT INTO logs_log(bot_id, nick, text, timestamp, action) values($1, $2, $3, $4, $5)", [bot_id, nick, text, timestamp, action]);
 
 module.exports = (robot) ->
     robot.hear /./, (msg) ->
-        nick = msg.message.user.name
-        text = msg.message.text
-        now = new Date()
-        store_msg(nick, text, now)
+        user = msg.message.user
+        if user.room
+            action = false
+            text = msg.message.text
+            if test.indexOf("ACTION") != -1
+                text = text.replace("ACTION ", "")
+                action = true
+            nick = user.name
+            now = new Date()
+            store_msg(nick, text, now, action)
 
     robot.enter (msg) ->
         nick = ""
