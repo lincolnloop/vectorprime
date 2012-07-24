@@ -18,7 +18,7 @@ module.exports = (robot) ->
         if user.room
             action = false
             text = msg.message.text
-            if test.indexOf("ACTION") != -1
+            if text.indexOf("ACTION") != -1
                 text = text.replace("ACTION ", "")
                 action = true
             nick = user.name
