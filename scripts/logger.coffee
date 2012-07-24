@@ -9,7 +9,7 @@ client.connect();
 
 store_msg = (nick, text, timestamp, action=false) ->
     bot_id = process.env.SNARLBOT_ID
-    client.query("INSERT INTO logs_log(bot_id, nick, text, timestamp) values($1, $2, $3, $4)", [bot_id, nick, text, timestamp]);
+    client.query("INSERT INTO logs_log(bot_id, nick, text, timestamp, action) values($1, $2, $3, $4, $5)", [bot_id, nick, text, timestamp, action]);
 
 module.exports = (robot) ->
     robot.hear /./, (msg) ->
